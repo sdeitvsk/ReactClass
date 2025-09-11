@@ -1,19 +1,28 @@
 import Gender from "./Gender";
+import Rating from "./Rating";
 
-function Card(props){
+function Card({name,email,age, gender,add1, rating, children}){
 
     return (
+        <>
          <div className="Card">
-           <div > Name : {props.name}</div>  
-           {props.email && <div > email : {props.email}</div>  }           
-           {props.age && <div > age : {props.age}</div>  }
-            <Gender gender={props.gender}/> 
+           <div > Name : {name}</div>  
+           {email && <div > email : {email}</div>  }           
+           {age && <div > age : {age}</div>  }
+            <Gender gender={gender}/> 
             <div>
-                {props?.add1?.line} <br />
-                {props?.add1?.dist} <br />
-                {props?.add1?.State}
+                {add1?.line} <br />
+                {add1?.dist} <br />
+                {add1?.State}
             </div>
+            <div>{rating}</div> 
+             <Rating rating={rating}/>
          </div>
+
+            {children}
+         
+        </>
+        
 
     )
 }
